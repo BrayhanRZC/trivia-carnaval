@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <title>Julius Connected 2 Grow </title>
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+   <!-- Icon Font Stylesheet -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+   <!-- Bootstrap core CSS -->
+   
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+ 
+
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" href="../trivia/asset/css/desafio.css">
+
+    <!-- LIBRERIA SWIPER -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- LIBRERIA AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
+
+</head>
+<body >
+
+
+    <section id="caja-formulario">
+       
+        <div class="col columna_derecha columna_formulario_desafio">
+          <form id="desafioForm"  class="container mt-5 container_formulario">
+              <div class="row">
+                  <div class="formulario-desafio ">
+                      <div class="col-lg-12 campos">
+                          <label for="nombre" class="form-label">Nombre Completo</label>
+                          <input type="text" class="form-control" id="nombre">
+                      </div>
+                      <div class="col-lg-12 campos">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" required="">
+                      </div>
+                                        <div class="col-lg-12 campos">
+                         <label for="celular" class="form-label">Celular</label>
+                        <input type="text" class="form-control" id="celular" required="">
+                          </select>
+                      </div>
+                         <div class="col-lg-12 campos">
+                          <label for="departamento" class="form-label">Departamento</label>
+                          <select class="form-select" id="departamento" onchange="ciudades()">
+                              <option value="Amazonas">Amazonas</option>
+                              <option value="Antioquia">Antioquia</option>
+                              <!-- Agrega más opciones aquí -->
+                          </select>
+                      </div>
+                        <div class="col-lg-12 campos">
+                          <label for="ciudad" class="form-label">Ciudad</label>
+                        <select class="form-select" id="ciudad">
+                            <!-- Opciones de ciudad se llenarán dinámicamente -->
+                        </select>
+                      </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <input type="checkbox" class="form-check-input" id="aceptoInformacion">
+                    <label class="form-check-label "> *Quiero recibir noticias y ofertas exclusivas.
+                  </label>
+                 </div>
+
+                  <div class="col-lg-12" id="popupTrigger">
+                        <input type="checkbox" value="si" class="form-check-input" id="agreeCheckbox" requerid>
+                        <label class="form-check-label ps-2" style="display:contents;" for="agreeCheckbox">Acepto los términos y condiciones y autorizo el tratamiento de mis datos personales
+                      </label>
+                  </div>
+                  
+                  
+
+              </div>
+
+    
+              </div>
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary btn_friko enviar" id="enviar">Empezar</button>
+              </div>  
+          </form>
+          
+        </div>
+      
+
+    </section>
+
+
+    <section id="caja-preguntas" style="display: none;" >
+
+
+      <div class="col columna_derecha_formulario">
+                  
+          <div class="caja_preguntas">
+                          <!-- Barra de progreso -->
+                          <div class="progress mb-3">
+                              <div class="progress-bar progress-bar-custom" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          
+                          <!-- Formulario -->
+        
+                          <form id="form-pasos">
+                              <div class="form-group paso paso-1">
+                              <label for="paso1" class="titulo_pregunta">1. ¿Cómo se llama el objeto que se coloca tradicionalmente sobre las chimeneas para que Santa Claus deje regalos?</label><br>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso1" id="paso1A" value="A">
+                                  <label class="form-check-label" for="paso1A">A. Zapatos.</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso1" id="paso1B" value="B">
+                                  <label class="form-check-label" for="paso1B">B. Calcetines.</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso1" id="paso1C" value="C">
+                                  <label class="form-check-label" for="paso1C">C. Gorros.</label>
+                              </div>
+                              </div>
+                              
+                              <div class="form-group paso paso-2" style="display: none;">
+                              <label for="paso2" class="titulo_pregunta">2. En la película navideña “El Grinch”, ¿qué es lo que más odia el personaje principal?</label><br>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso2" id="paso2A" value="A">
+                                  <label class="form-check-label" for="paso2A">A. La nieve y las personas.</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso2" id="paso2B" value="B">
+                                  <label class="form-check-label" for="paso2B">B. La comida navideña.</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso2" id="paso2C" value="C">
+                                  <label class="form-check-label" for="paso2C">C. El ruido y la alegría de la Navidad.</label>
+                              </div>
+    
+                              </div>
+                              
+                              <div class="form-group paso paso-3 " style="display: none;">
+                              <label for="paso3" class="titulo_pregunta">3. ¿Qué línea de productos Lorenzano destaca por ser libre de colorantes artificiales?</label><br>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso3" id="paso3A" value="A">
+                                  <label class="form-check-label" for="paso3A">A. Línea Día a Día.</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso3" id="paso3B" value="B">
+                                  <label class="form-check-label" for="paso3B">B. Línea Maestro.</label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="paso3" id="paso3C" value="C">
+                                  <label class="form-check-label" for="paso3C">C. Todas las anteriores.</label>
+                              </div>
+                            
+                              </div>
+                              
+                            
+                          </form>
+                        
+
+          </div>
+
+          <div class="botones">
+            <button type="button" class="btn btn_friko2 btn-atras" style="display: none;">Atrás</button>
+            <button type="button" class="btn btn_friko btn-siguiente">Siguiente</button>
+            <button type="button" class="btn btn_friko btn-enviar" id="submitBtn" style="display: none;">Enviar</button>
+            
+          </div> 
+              
+        
+
+         
+  
+      </div>
+
+  </section>
+
+
+
+  <div class="popup" id="popup">
+    <div class="popup-inner">
+      <button type="button" class="btn-close" id="closePopupButton"></button>
+                    <div class="modal-header">
+                        <h5 class="modal-title mb-0" id="myModalLabel" style="text-transform: none;">Autorización para el tratamiento de datos personales</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-12 text-justify mb-2" style="overflow-y: scroll; height: 50vh;">
+                            <p style="line-height: 12px; margin-bottom: 24px;" class="text-danger">
+                                <small>
+                                    He sido informado que  OPERADORA AVICOLA COLOMBIA S.A.S 
+                                    identificada con NIT 891401858 en calidad de RESPONSABLE 
+                                    bajo cualquier modalidad: podrá recolectar, tratar, usar, 
+                                    ceder, transferir o transmitir a terceros o encargados en 
+                                    Colombia o en el exterior los datos personales obtenidos a 
+                                    través de la suscripción realizada. He leído la Política de 
+                                    Tratamiento de Datos Personales disponibles en el sitio web 
+                                    <a href="https://www.lorenzano.co/" target="_blank">
+                                    www.lorenzano.co</a>, por ello, consiento y autorizo 
+                                    de manera previa, expresa e inequívoca que mis datos 
+                                    personales sean tratados  para el cumplimiento de las 
+                                    siguientes finalidades; 
+                                    <ol style="list-style-type: upper-roman;" class="text-danger">
+                                        <li><b>I.</b> contactarme,</li>
+                                        <li><b>II.</b> comunicarme sobre campañas publicitarias y mercadeo mediante email marketing, mensajes de texto al celular, contacto telefónico, mensajes emergentes, notificaciones y mensajes publicitarios;</li>
+                                        <li><b>III.</b> recibir información de los productos y servicios prestados o comercializados por la compañía;</li>
+                                        <li><b>IV.</b> realizar estudios sobre hábitos de consumo y preferencias, evaluar la calidad de los servicios prestados por la compañía;</li>
+                                        <li><b>V.</b> gestionar trámites (solicitudes, quejas, reclamos) y atención de las garantías; y todas las demás estipulados en la política para el tratamiento de datos personales de la compañía.</li>
+                                    </ol>
+                                </small>
+                            </p>
+                            <p style="line-height: 12px; margin-bottom: 0px;" class="text-danger">
+                                <small class="text-danger">
+                                    <p style="line-height: 12px; margin-bottom: 12px;">Como titular tengo los siguientes derechos:</p>
+                                    <ol style="list-style-type: upper-roman;">
+                                        <li><b>I.</b> Acceder en forma gratuita a los datos proporcionados que hayan sido objeto de tratamiento.</li>
+                                        <li><b>II.</b> Solicitar la actualización y rectificación de su información frente a datos parciales, inexactos, incompletos, fraccionados, que induzcan a error, o a aquellos cuyo tratamiento esté prohibido o no haya sido autorizado.</li>
+                                        <li><b>III.</b> Solicitar prueba de la autorización otorgada.</li>
+                                        <li><b>IV.</b> Presentar ante la Superintendencia de Industria y Comercio (SIC) autoridad competente quejas por infracciones a lo dispuesto en la
+                                    </ol>
+                                </small>
+                            </p>
+                    </div>
+                </div>
+            </div>
+  </div>
+
+
+
+  <div class="error-popup">
+      <span class="error-popup-icon">&#9888;</span> Debes seleccionar una respuesta.
+    </div>
+ 
+    <!-- spinner y popup de envio  -->
+    <div class="overlay" style="display: none;"></div>
+      <div class="spinner-popup" style="display: none;">
+      <div class="spinner-border text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+      </div>
+      <p>Un momento por favor, serás redirigido <br>a otra página de confirmación...</p>
+    </div>
+
+   
+
+        
+
+
+
+     <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+
+ 
+  <script src="../trivia/asset/js/swiper.js"></script>
+  <script src="../trivia/asset/js/formulario.js"></script>
+      <script src="../trivia/asset/js/ciudadades.js"></script>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/dea03a73e8.js" crossorigin="anonymous"></script>
+
+
+
+  
+</body>
+</html>
